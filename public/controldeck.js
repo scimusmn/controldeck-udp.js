@@ -1,4 +1,5 @@
 $(function(){
+    // Connect to the io socket
     var iosocket = io.connect();
 
     iosocket.on('connect', function () {
@@ -8,16 +9,24 @@ $(function(){
         // console.log('disconnected');
     });
 
+    /**
+     * Send keys with appropriate modifier key options
+     */
     $(window).keydown(function(e) {
         // console.log('Sending keyboard command: '+e.keyCode);
-        iosocket.emit("key down", { keyCode: e.keyCode, shiftKey: e.shiftKey, altKey: e.altKey, ctrlKey: e.ctrlKey, metaKey: e.metaKey });
+        iosocket.emit("key down", { keyCode: e.keyCode, shiftKey: e.shiftKey,
+          altKey: e.altKey, ctrlKey: e.ctrlKey, metaKey: e.metaKey });
     });
 
     $(window).keyup(function(e) {
         // console.log('Sending keyboard command: '+e.keyCode);
-        iosocket.emit("key up", { keyCode: e.keyCode, shiftKey: e.shiftKey, altKey: e.altKey, ctrlKey: e.ctrlKey, metaKey: e.metaKey });
+        iosocket.emit("key up", { keyCode: e.keyCode, shiftKey: e.shiftKey,
+          altKey: e.altKey, ctrlKey: e.ctrlKey, metaKey: e.metaKey });
     });
 
+    /**
+     * Send multitouch device gestures as clicks
+     */
     var press = Modernizr.touch ? 'touchstart' : 'click';
     $('body').on(press,'.btn', function(e) {
         e.preventDefault();
@@ -29,10 +38,13 @@ $(function(){
             iosocket.send('goto:'+$(this).attr('data-goto'));
         }
         else if ($(this).attr('data-command')) {
-			iosocket.send($(this).attr('data-command'));
-		}
+      iosocket.send($(this).attr('data-command'));
+    }
     });
 
+    /**
+     * Update the FlowTime slide system's mini map with current slide progress
+     */
     iosocket.on('flowtime minimap complete', function(data){
         var minimap = $('<div class="minimap ft-default-progress"></div>');
         $('body').append(minimap);
@@ -42,7 +54,7 @@ $(function(){
             e.preventDefault();
             for (var i = 0; i < ftThumbs.length; i++) {
                 ftThumbs[i].classList.remove('actual');
-            } 
+            }
             e.target.classList.add('actual');
             var s = e.target.getAttribute('data-section').replace('__', '');
             var p = e.target.getAttribute('data-page').replace('__', '');

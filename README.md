@@ -1,12 +1,13 @@
-# controldeck.js
+# controldeck-udp.js
 ## Control HTML5 Presentations with node.js
 
-Created by [John Polacek](http://twitter.com/johnpolacek)
+controldeck-udp.js if a fork of controldeck.js, which was created by [John Polacek](http://twitter.com/johnpolacek)
 
 ### Getting Started
-First, [download the source](https://github.com/dfcb/controldeck.js/archive/master.zip). Open up a terminal window, install the dependencies, and run the app.
+Clone the Git repo, install the dependencies, and run the app.
 
 ```bash
+$ git clone git@github.com:scimusmn/controldeck-udp.js.git
 $ npm install
 $ node app
 ```
@@ -28,13 +29,8 @@ Use the 2 button controller or create your own. Refer to the examples for how to
 
 * * *
 
-### Draftfcb Chicago
-We are the development group at Draftfcb Chicago. If you want to work on big digital ideas for big brands, get in touch with us at [devrecruiting@draftfcb.com](mailto:devrecruiting@draftfcb.com).
-
-* * *
-
 The MIT License (MIT)
-Copyright © 2013 John Polacek
+Original copyright by John Polacek © 2013 John Polacek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

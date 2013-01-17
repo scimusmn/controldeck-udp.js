@@ -1,52 +1,67 @@
-var static = require('node-static'),
-    http = require('http'),
-    util = require('util'),
-    url = require('url'),
+/**
+ * Load the modules that we need
+ */
+var http = require('http'),
+    static = require('node-static'),
+    socketio = require("socket.io"),
+    dgram = require("dgram"),
+    url = require('url');
     fs = require('fs');
 
-// create static server for decks
-var fileServer = new static.Server('./public');
+/**
+ * Create a HTTP web server
+ *
+ * Port choice (8080) is arbitrary but should be distinct from the UDP
+ * listener port
+ */
+var app = http.createServer(handleRequest);
+app.listen(8080);
 
-var server = http.createServer(function (req, res) {
+/**
+ * Create a node-static server instance to serve the slide deck presentations
+ */
+var files = new static.Server('./public');
 
-    var pathname = url.parse(req.url).pathname;
-    console.log('pathname: '+pathname);
+/**
+ * Create a Socket.IO server for communication between devices
+ */
+var io = socketio.listen(app);
 
-    req.addListener('end', function () {
-        fileServer.serve(req, res);
-    });
+/**
+ * Create a UDP network listener
+ *
+ * Port choice (43278) is arbitrary but should be distinct from the HTTP port
+ */
+var UDPsocket = dgram.createSocket('udp4');
+UDPsocket.bind(43278);
 
-}).listen(8080, function() {
-    console.log('Listening at: http://localhost:8080');
+/**
+ * Respond to a HTTP requests with the node-static server
+ */
+function handleRequest(req, res) {
+
+  // Log pathname
+  var pathname = url.parse(req.url).pathname;
+  console.log('pathname: '+pathname);
+
+  req.addListener('end', function () {
+    files.serve(req, res);
+  });
+}
+
+/**
+ * Respond to UDP messages
+ *
+ * When specific UDP messages are sent, this will pass commands to the
+ * slide decks through the Socket.IO server
+ */
+UDPsocket.on('message', function(content, rinfo) {
+
+    // Log the raw UDP message
+    console.log('got message', content, 'from', rinfo.address, rinfo.port);
+
+    // Convert the UDP message to a string and send it along to web
+    // application using Socket.IO
+    io.sockets.emit('message', content.toString());
+
 });
-
-
-var io = require('socket.io').listen(server);
-io.sockets.on('connection', function(socket){
-
-    socket.on('message', function(message){
-        socket.broadcast.emit('message', message);
-    });
-
-    socket.on('key down', function(data){
-        socket.broadcast.emit('key down', data);
-    });
-
-    socket.on('key up', function(data){
-        socket.broadcast.emit('key up', data);
-    });
-
-    socket.on('flowtime minimap complete', function(data){
-        socket.broadcast.emit('flowtime minimap complete', data);
-    });
-
-    socket.on('navigate', function(data){
-        socket.broadcast.emit('navigate', data);
-    });
-
-    socket.on('disconnect', function(){
-        console.log("Connection " + socket.id + " terminated.");
-    });
-
-});
-

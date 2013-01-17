@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>controldeck-udp.js</title>
-        <meta name="description" content="Control HTML5 Presentations with node.js and UDP messages">
-        <meta name="viewport" content="width=640">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>controldeck-udp.js</title>
+    <meta name="description" content="Control HTML5 Presentations with node.js and UDP messages">
+    <meta name="viewport" content="width=640">
 
-        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
 
-        <!--[if lt IE 9]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
-        <![endif]-->
-    </head>
-    <body>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+    <![endif]-->
+  </head>
+  <body>
 
-        <a href="https://github.com/scimusmn/controldeck-udp.js">
-            <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 11;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" alt="Fork me on GitHub" />
-        </a>
+    <a href="https://github.com/scimusmn/controldeck-udp.js">
+      <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 11;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" alt="Fork me on GitHub" />
+    </a>
 
-        <header>
-            <div class="panel panel-dark"> <h1>controldeck-udp.js</h1> </div>
-            <h2>control HTML5 Presentations <br />with node.js and UDP messages</h2>
-            <p>
-                The original work on controldeck.js was built and designed by 
-                <a href="http://twitter.com/johnpolacek">John Polacek</a><br />
-                ControlDeck-udp.js is a fork of ControlDeck.js.<br />
-                It has been modified for UDP messaging to facilitate kiosk and show control use by <a href="http://twitter.com/xbryanx">Bryan Kennedy</a><br />
-                for use at the <a href="http://www.smm.org/">Science Museum of Minnesota</a>
-            </p>
-            <p>Source code and documentation at <br /><a href="https://github.com/scimusmn/controldeck-udp.js">github.com/scimusmn/controldeck-udp.js</a></p>
+    <header>
+      <div class="panel panel-dark"> <h1>controldeck-udp.js</h1> </div>
+      <h2>control HTML5 Presentations <br />with node.js and UDP messages</h2>
+      <p>
+        The original work on controldeck.js was built and designed by 
+        <a href="http://twitter.com/johnpolacek">John Polacek</a><br />
+        ControlDeck-udp.js is a fork of ControlDeck.js.<br />
+        It has been modified for UDP messaging to facilitate kiosk and show control use by <a href="http://twitter.com/xbryanx">Bryan Kennedy</a><br />
+        for use at the <a href="http://www.smm.org/">Science Museum of Minnesota</a>
+      </p>
+      <p>Source code and documentation at <br /><a href="https://github.com/scimusmn/controldeck-udp.js">github.com/scimusmn/controldeck-udp.js</a></p>
 
-        </header>
+    </header>
 
-        <section>
-            <p>Below are various HTML5 slide presentation demos. Open the controller in a new window and use the buttons to update the slides opened in a different window.</p>
-            <p><strong>IMPORTANT!</strong> Open controller <strong>BEFORE</strong> slides</p>
-            <h3>Demo Decks</h3>
-            <ul>
-                <li class="deck-example">
-                    <h4>Example #1: Flowtime.js</h4>
-                    <a href="./control-flowtime.html" class="btn btn-small btn-150" target="_blank">controller</a>
-                    <a href="./decks-demos/flowtime.js/" class="btn btn-small btn-150" target="_blank">slides</a>
-                </li>
-                <li class="deck-example">
-                    <h4>Example #2: reveal.js</h4>
-                    <a href="./control-reveal.html" class="btn btn-small btn-150" target="_blank">controller</a>
-                    <a href="./decks-demos/reveal.js/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
-                </li>
-                <li class="deck-example">
-                    <h4>Example #3: impress.js</h4>
-                    <a href="./control-impress.html" class="btn btn-small btn-150" target="_blank">controller</a>
-                    <a href="./decks-demos/impress.js/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
-                </li>
-                <li class="deck-example">
-                    <h4>Example #4: jmpress.js</h4>
-                    <a href="./control-2btn.html" class="btn btn-small btn-150" target="_blank">controller</a>
-                    <a href="./decks-demos/jmpress.js/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
-                </li>
-                <li class="deck-example">
-                    <h4>Example #5: deck.js</h4>
-                    <a href="./control-2btn.html" class="btn btn-small btn-150" target="_blank">controller</a>
-                    <a href="./decks-demos/deck.js/introduction/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
-                </li>
-                <li class="deck-example">
-                    <h4>Example #6: scrolldeck.js</h4>
-                    <a href="./control-2btn.html" class="btn btn-small btn-150" target="_blank">controller</a>
-                    <a href="./decks-demos/scrolldeck.js/decks-demos/responsive/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
-                </li>
-            </ul>
-        </section>
+    <section>
+      <p>Below are various HTML5 slide presentation demos. Open the controller in a new window and use the buttons to update the slides opened in a different window.</p>
+      <p><strong>IMPORTANT!</strong> Open controller <strong>BEFORE</strong> slides</p>
+      <h3>Demo Decks</h3>
+      <ul>
+        <li class="deck-example">
+          <h4>Example #1: Flowtime.js</h4>
+          <a href="./control-flowtime.html" class="btn btn-small btn-150" target="_blank">controller</a>
+          <a href="./decks-demos/flowtime.js/" class="btn btn-small btn-150" target="_blank">slides</a>
+        </li>
+        <li class="deck-example">
+          <h4>Example #2: reveal.js</h4>
+          <a href="./control-reveal.html" class="btn btn-small btn-150" target="_blank">controller</a>
+          <a href="./decks-demos/reveal.js/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
+        </li>
+        <li class="deck-example">
+          <h4>Example #3: impress.js</h4>
+          <a href="./control-impress.html" class="btn btn-small btn-150" target="_blank">controller</a>
+          <a href="./decks-demos/impress.js/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
+        </li>
+        <li class="deck-example">
+          <h4>Example #4: jmpress.js</h4>
+          <a href="./control-2btn.html" class="btn btn-small btn-150" target="_blank">controller</a>
+          <a href="./decks-demos/jmpress.js/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
+        </li>
+        <li class="deck-example">
+          <h4>Example #5: deck.js</h4>
+          <a href="./control-2btn.html" class="btn btn-small btn-150" target="_blank">controller</a>
+          <a href="./decks-demos/deck.js/introduction/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
+        </li>
+        <li class="deck-example">
+          <h4>Example #6: scrolldeck.js</h4>
+          <a href="./control-2btn.html" class="btn btn-small btn-150" target="_blank">controller</a>
+          <a href="./decks-demos/scrolldeck.js/decks-demos/responsive/index.html" class="btn btn-small btn-150" target="_blank">slides</a>
+        </li>
+      </ul>
+    </section>
 
-        <footer><!-- Add some SMM media links here --></footer>
+    <footer><!-- Add some SMM media links here --></footer>
 
-        <!-- Add our own Analytics code -->
-    </body>
+    <!-- Add our own Analytics code -->
+  </body>
 
 </html>

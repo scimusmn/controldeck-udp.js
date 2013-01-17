@@ -1,7 +1,7 @@
 {
-  "name": "controldeck",
-  "version": "0.0.0",
-  "description": "Control HTML5 Presentations with node.js",
+  "name": "controldeck-udp",
+  "version": "0.0.1",
+  "description": "Control HTML5 Presentations with node.js and UDP messages",
   "main": "app.js",
   "dependencies": {
     "node-static": "~0.6.6",
@@ -10,9 +10,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/dfcb/controldeck.js.git"
+    "url": "git://github.com/scimusmn/controldeck-udp.js.git"
   },
   "keywords": [],
-  "author": "John Polacek",
+  "contributors": [
+    "Bryan Kennedy <bkennedy@smm.org>",
+    "John Polacek"
+  ]
   "license": "MIT"
 }

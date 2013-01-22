@@ -7,7 +7,7 @@ else if (typeof Reveal !== 'undefined')             messageHandler = updateRevea
 else if (typeof impress !== 'undefined')            messageHandler = updateImpress;
 else if (typeof jQuery.jmpress !== 'undefined')     messageHandler = updateJmpress;
 else if (typeof jQuery.scrolldeck !== 'undefined')  messageHandler = updateScrollDeck;
-else if (typeof Flowtime !== 'undefined')  			messageHandler = updateFlowtime;
+else if (typeof Flowtime !== 'undefined')       messageHandler = updateFlowtime;
 else    messageHandler = updateGeneric;
 
 // separated in case we want to differentiate in the future
